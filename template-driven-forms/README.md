@@ -26,3 +26,35 @@ If ngModel is used within a form tag, either the name attribute must be set or t
 ```
 
 This way we are able to retrieve the different form control values by making use of ngForm and ngModel directives.
+
+```JSON
+{ 
+    "userName": "Rani", 
+    "email": "rs@rani.co", 
+    "phone": "0536503426", 
+    "topic": "Angular", 
+    "timePreference": "morning", 
+    "subscribe": true
+}
+```
+
+In addition to ngModel, angular also provides the ngModelGroup directive if we would like to group together or create a subgroup within a form. For example, consider an address, which could have street, city, state and postal code. We can group these fields into an address object using the ng model group directive.
+
+```JSON
+{
+    "address": {
+        "street": "Dabab street",
+        "city": "Riyadh",
+        "state": "Outside USA and Canada",
+        "postalCode": "11656"
+    },
+    "userName": "Rani",
+    "email": "rs@rani.co",
+    "phone": "0536503426",
+    "topic": "Angular",
+    "timePreference": "morning",
+    "subscribe": true
+}
+```
+
+To understand template-driven-forms, we really don't have to focus on the ngModelGroup directive.
