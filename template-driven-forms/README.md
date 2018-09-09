@@ -71,3 +71,5 @@ As users enter the form data we will capture the changes and update an instance 
 The first step is to generate a model class by running the following command in the terminal: `ng generate class User` where user is the name of the model class. Then open the generated user.ts file and add the different properties of the User class.
 
 Now that we have a model, the next step is to create an instance of this model in the AppComponent class. By having this instance of the model, it is now possible to bind the User model data to the form. A simple use case for this would be updating or editing data that is already saved.
+
+Now that we have captured all the form data into a model which can now be sent to the server. However, before sending it to the server it is crucial to perform client-side validation and provide useful visual feedback to the user.
