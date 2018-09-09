@@ -58,3 +58,16 @@ In addition to ngModel, angular also provides the ngModelGroup directive if we w
 ```
 
 To understand template-driven-forms, we really don't have to focus on the ngModelGroup directive.
+
+Keep in mind, when it comes to data binding in template-driven-forms, we have three directives: ngForm, ngModel and ngModelGroup.
+
+So, we are able to bind data using the ngModel directive and we can send this bound data to the server when required using `userForm.value`. Although this works completely fine, a better approach is to bind the data to a user-defined model and send that model data to the server.
+
+
+## Binding Data to a Model
+
+As users enter the form data we will capture the changes and update an instance of the model that can later be sent to the server.
+
+The first step is to generate a model class by running the following command in the terminal: `ng generate class User` where user is the name of the model class. Then open the generated user.ts file and add the different properties of the User class.
+
+Now that we have a model, the next step is to create an instance of this model in the AppComponent class. By having this instance of the model, it is now possible to bind the User model data to the form. A simple use case for this would be updating or editing data that is already saved.
