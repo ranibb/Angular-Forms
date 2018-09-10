@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <h1>Bootcamp Enrollment Form</h1>
-    <form #userForm="ngForm">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
         {{userForm.form.valid}}
-        
+
         <div class="form-group">
             <label>Name</label>
             <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" name="userName" [(ngModel)]="userModel.name" required>

@@ -168,3 +168,11 @@ This can be used to disable the submit button until the form is valid. To do thi
 Take for example the custom validation we created for the select control. A couple of ways to handle this: 
 * The first one, when the submit button is clicked, an event is fired, you can check the value of the field and then proceed with submitting the form.
 * The second one, we can simply add the condition topicHasError that was defined for the custom validation on the select control. So, the submit button gets disabled when the user for is invalid or the topic field has an error.
+
+## Submitting form data
+
+The first step is to add the novalidate attribute on the form tag. This will prevent browser validation from kicking in when we click on the submit button.
+
+The next step is to bind to the ngSubmit event which gets emitted when the submit button is clicked. We will assign a handler to it called onSubmit which we define in the AppComponent class.
+
+To be able to send the data to a server, we need to make use of a service. So let's create a new service using the CLI: `ng g s enrollment` and implement it.
