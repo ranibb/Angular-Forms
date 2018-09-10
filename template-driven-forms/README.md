@@ -73,3 +73,34 @@ The first step is to generate a model class by running the following command in 
 Now that we have a model, the next step is to create an instance of this model in the AppComponent class. By having this instance of the model, it is now possible to bind the User model data to the form. A simple use case for this would be updating or editing data that is already saved.
 
 Now that we have captured all the form data into a model which can now be sent to the server. However, before sending it to the server it is crucial to perform client-side validation and provide useful visual feedback to the user.
+
+## Track control state and validity
+
+| State                            | Class if true | Class if false |
+| ---------------------------------|---------------|----------------|
+| The control has been visited.    | ng-touched    | ng-untouched   |
+| The control's value has changed. | ng-dirty      | ng-pristine    |
+| The control's value is valid     | ng-valid      | ng-invalid     |
+
+At any point in time, angular applies three classes to a form control based on its state.
+
+When you load a form for the very first time you have not yet visited a form field. So, angular applies a class of ng-untouched. If you do visit the form control either by clicking or tapping and then navigating away from the form control, angular applies a class of ng touched. The key point here is that the class will change only on blur; you have to navigate away from the form control. So, if the form control has been visited. ng-touched class is applied, if not, ng-untouched class is going to be applied.
+
+On similar lines angular also tracks if the value of the form control has changed or not. Again, when you load a form for the very first time, the value has not yet changed, so angular applies a class ng-pristine. If you do change the value of the form control, angular applies a class of ng-dirty. For example, when you start typing a value into the input field, the class changes from ng-pristine to ng-dirty.
+
+And the final pair of classes is concerned with the validity of the form control. The form control's value is valid, ng-valid class is applied, if not, ng-invalid is applied. For example, if an input field contains the required attribute, it implies that a value has to be entered. If a value is missing, ng-invalid class is applied and when a value is entered, ng-valid class is going to be applied.
+
+So, in order to display the classes being applied to an input filed we first add a reference variable to that input field, for example #name
+
+```HTML
+<input type="text" #name class="form-control" name="userName" [(ngModel)]="userModel.name">
+```
+
+Then, we bind to that input's class name property
+
+```HTML
+{{name.className}}
+<!-- where name is the reference variable. -->
+```
+
+You can see that the classes being applied to the input element are displayed.; We have "form-control ng-untouched ng-pristine ng-valid".
