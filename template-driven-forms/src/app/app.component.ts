@@ -16,6 +16,8 @@ export class AppComponent {
 
   submitted = false;
 
+  errorMsg = '';
+
   constructor(private _enrollmentService: EnrollmentService) {}
 
   validateTopic(value) {
@@ -31,7 +33,7 @@ export class AppComponent {
     this._enrollmentService.enroll(this.userModel)
       .subscribe(
         data => console.log("Success", data),
-        error => console.log("Error", error)
+        error => this.errorMsg = error.statusText
       )
   }
 }

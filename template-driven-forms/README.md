@@ -178,3 +178,13 @@ The next step is to bind to the ngSubmit event which gets emitted when the submi
 To be able to send the data to a server, we need to make use of a service. So let's create a new service using the CLI: `ng g s enrollment` and implement it.
 
 It is advisable to disable or hide the submit button once it has been clicked. That because, it might cause serious problems when making payments or checking out on ecommerce sites for example. In our example, we are going to simply hide the entire form after submitting. This gives an appearance of the form being submitted as well.
+
+## Error Handling
+
+At times when you submit a form, something might go wrong and the server will respond with an error.
+
+In the EnrollmentService we will be catching the error from the server and then throwing it to the subscribed component. So, we need the help of rxjs.
+
+Instead of logging the error to the console, let's bind the error status text to the view.
+
+You can send any message you want to and display the message with any style you wish to apply. But this is the gist of error handling: Catch the error in the service. And then, throw the error to the component that has subscribed to the service. In the component, assign the error status message to a property and then bind it to the html.
