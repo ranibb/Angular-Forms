@@ -158,3 +158,13 @@ Considering a case where the drop-down options are being populated from an API i
 We are going to listen the "blur" and "change" events on the select control. In the event handler, we are going to check if the value is the default value. If it is we set an error flag to true. We use that error flag to conditionally apply classes and display the error message.
 
 Now when these events occur, we want a method to be executed. Let's call it validateTopic method. To this method we pass in the value of the select control. Also, don't forget to remove the required attribute.
+
+### Form validation
+
+Whenever we add a form element in the HTML, angular automatically attaches the ngForm directive to the form tag. We can get a reference to that ngForm directive with the help of a template reference variable: `#userForm="ngForm"`. And for ngForm directive we have the same properties that the ngModel have. Therefore, we can bind for example: `{{userForm.form.valid}}` which returns true if all the fields within the form are validated or false if at least one field isn't valid.
+
+This can be used to disable the submit button until the form is valid. To do this, add the disabled property to the button element and bind it to the invalid state of the form `[disabled]="userForm.form.invalid"`. Well this works fine if you don't have custom validations that ngForm is not tracking.
+
+Take for example the custom validation we created for the select control. A couple of ways to handle this: 
+* The first one, when the submit button is clicked, an event is fired, you can check the value of the field and then proceed with submitting the form.
+* The second one, we can simply add the condition topicHasError that was defined for the custom validation on the select control. So, the submit button gets disabled when the user for is invalid or the topic field has an error.
