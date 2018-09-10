@@ -150,3 +150,11 @@ For single validation rules:
 For multiple validation rules:
 * Create a block that gets rendered only if the errors object is defined and the field is for example, invalid or visited.
 * Within that block, create separate error messages based on the validation that is being applied. And that can be accessed using the errors property.
+
+### Select control validation
+
+Considering a case where the drop-down options are being populated from an API instead of a hard-coded array. And in the API for the default option, the value is set to default and not an empty string. For that we need custom validation for select control.
+
+We are going to listen the "blur" and "change" events on the select control. In the event handler, we are going to check if the value is the default value. If it is we set an error flag to true. We use that error flag to conditionally apply classes and display the error message.
+
+Now when these events occur, we want a method to be executed. Let's call it validateTopic method. To this method we pass in the value of the select control. Also, don't forget to remove the required attribute.
