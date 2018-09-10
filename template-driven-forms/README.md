@@ -123,3 +123,15 @@ In order to get access to the ngModel properties, we simply create a reference t
 ```
 
 The reference variable #name now points to the ngModel of this particular form control. So, now we have a reference to ngModel, we can easily bind to the different properties. For example, `{{name.untouched}}` returns true when reloading the form. If you click inside and then blur, it changes to false.
+
+## Validation with Visual Feedback
+
+We make use of the ngModel properties coupled with class binding. For example: `[class.is-invalid]="name.invalid"` which says, apply the class is invalid when the name form control is invalid.
+
+Assume a case where we have a form field that is initially empty, then the class invalid is going to be applied without any user interaction, which looks bad. So, in addition to checking if the form control is invalid, we also check if the user has visited that form control. Hence update the class binding as following: `[class.is-invalid]="name.invalid && name.touched"`
+
+### Pattern matching validation
+
+You can add any regular expression you want to and create a pattern that your form field must satisfy. For example, a password must be 8 to 15 characters with at least one special character. A pin code in a specific format, a phone number in a specific format, the possibilities are endless.
+
+For example, let’s make sure the phone number is 10 digits. For that, we do the following: First, get a reference to thr ngModel directive; `#phone="ngModel"`. Second, Add the pattern attribute with the regular expression; `pattern="^\d{10}$"`. Finally, let's bind the invalid class; `[class.is-invalid]="name.invalid"`.
