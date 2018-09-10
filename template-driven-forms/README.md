@@ -104,3 +104,22 @@ Then, we bind to that input's class name property
 ```
 
 You can see that the classes being applied to the input element are displayed.; We have "form-control ng-untouched ng-pristine ng-valid".
+
+As you can see, angular tries to help us out with form validation by applying the appropriate classes to the form controls. Although these classes can be used to provide visual feedback, angular also provides an alternative. For each of the classes, angular provides an associated property on the ngModel directive.
+
+| Class         | Property       |
+|---------------|----------------|
+| ng-untouched  | untouched      |
+| ng-touched    | touched        |
+| ng-pristine   | pristine       |
+| ng-dirty      | dirty          |
+| ng-valid      | valid          |
+| ng-invalid    | invalid        |
+
+In order to get access to the ngModel properties, we simply create a reference to the ngModel directive. Right now, the #name reference variable points to the input element in the DOM. By assigning it a value of ngModel.
+
+```HTML
+<input type="text" #name="ngModel" class="form-control" name="userName" [(ngModel)]="userModel.name" required>
+```
+
+The reference variable #name now points to the ngModel of this particular form control. So, now we have a reference to ngModel, we can easily bind to the different properties. For example, `{{name.untouched}}` returns true when reloading the form. If you click inside and then blur, it changes to false.
