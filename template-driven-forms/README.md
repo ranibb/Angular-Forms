@@ -176,3 +176,5 @@ The first step is to add the novalidate attribute on the form tag. This will pre
 The next step is to bind to the ngSubmit event which gets emitted when the submit button is clicked. We will assign a handler to it called onSubmit which we define in the AppComponent class.
 
 To be able to send the data to a server, we need to make use of a service. So let's create a new service using the CLI: `ng g s enrollment` and implement it.
+
+It is advisable to disable or hide the submit button once it has been clicked. That because, it might cause serious problems when making payments or checking out on ecommerce sites for example. In our example, we are going to simply hide the entire form after submitting. This gives an appearance of the form being submitted as well.

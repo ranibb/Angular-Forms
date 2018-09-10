@@ -14,6 +14,8 @@ export class AppComponent {
 
   userModel = new User('', 'rob@test.com', 555666777, 'default', 'morning', true);
 
+  submitted = false;
+
   constructor(private _enrollmentService: EnrollmentService) {}
 
   validateTopic(value) {
@@ -25,6 +27,7 @@ export class AppComponent {
   }
 
   onSubmit() {
+    this.submitted = true;
     this._enrollmentService.enroll(this.userModel)
       .subscribe(
         data => console.log("Success", data),
