@@ -135,3 +135,18 @@ Assume a case where we have a form field that is initially empty, then the class
 You can add any regular expression you want to and create a pattern that your form field must satisfy. For example, a password must be 8 to 15 characters with at least one special character. A pin code in a specific format, a phone number in a specific format, the possibilities are endless.
 
 For example, let’s make sure the phone number is 10 digits. For that, we do the following: First, get a reference to thr ngModel directive; `#phone="ngModel"`. Second, Add the pattern attribute with the regular expression; `pattern="^\d{10}$"`. Finally, let's bind the invalid class; `[class.is-invalid]="name.invalid"`.
+
+## Displaying Error Messages
+
+You can display error messages according to a single and multiple validation.
+
+If you want to go the extra mile with user experience and be spot-on with your error messages, use the errors property on the ngModel. For that, we use the ngIf directive along with the ngModel properties.
+
+For single validation rules:
+* create an element that contains the error message.
+* Conditionally display the message based on the state of the form filed. 
+* Apply the appropriate style to the error message. 
+
+For multiple validation rules:
+* Create a block that gets rendered only if the errors object is defined and the field is for example, invalid or visited.
+* Within that block, create separate error messages based on the validation that is being applied. And that can be accessed using the errors property.
