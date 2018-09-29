@@ -3,7 +3,7 @@
     <div class="alert alert-danger" *ngIf="errorMsg">
         {{errorMsg}}
     </div>
-    <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+    <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)" novalidate>
 
         <div class="form-group">
             <label>Name</label>

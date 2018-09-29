@@ -179,6 +179,14 @@ To be able to send the data to a server, we need to make use of a service. So le
 
 It is advisable to disable or hide the submit button once it has been clicked. That because, it might cause serious problems when making payments or checking out on ecommerce sites for example. In our example, we are going to simply hide the entire form after submitting. This gives an appearance of the form being submitted as well.
 
+Remember, the ngForm directive gives us the entire information about the form. So, in the ngSubmit event, let's pass the reference variable as a parameter and log this object to the console. 
+
+You can see that there are a lot of properties on this object. We have already seen the value property which is an object that contains the values of all the different form fields. 
+
+ngForm also have another important property named form which is of type FormGroup. This form object has a property called controls which is a list of all form fields. Each of these fields is of type FormControl. The FormControl has properties like validator, pristine, touched and so on.
+
+FormGroup & FormControl are the building blocks of reactive forms.
+
 ## Error Handling
 
 At times when you submit a form, something might go wrong and the server will respond with an error.
