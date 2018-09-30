@@ -1,27 +1,35 @@
-# ReactiveForms
+## Creating the Form Model
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
+In our demo application, we have three form fields Username, Password and Confirm Password. Each of these form fields is defined as an instance of the *FormControl* class. And the overall form itself that encompasses the three form fields is defined as an instance of the *FormGroup* class.
 
-## Development server
+So, first step is to create a new FormGroup instance in that represents the user registration form.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```TypeScript
+registrationForm = new FormGroup();
+```
 
-## Code scaffolding
+The next step is to initialize this FormGroup with an object of controls that are present in the html. You can pass default value into the FormControl constructor. For example, 'Rani' to userName.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```TypeScript
+registrationForm = new FormGroup({
+    userName: new FormControl('Rani'),
+    password: new FormControl(''),
+    confirmPassword: new FormControl('')
+});
+```
 
-## Build
+To associate this model with the view (the HTML form), the ReactiveFormsModule provides us with certain directives. On the form tag we use the `formGroup` directive and bind the registrationForm.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```TypeScript
+<form [formGroup]="registrationForm">
+```
 
-## Running unit tests
+To bind each of the Form Controls we use the `formControlName` directive.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```TypeScript
+<input formControlName="userName" type="text" class="form-control">
 
-## Running end-to-end tests
+<input formControlName="password" type="password" class="form-control">
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<input formControlName="confirmPassword" type="password" class="form-control">
+```
