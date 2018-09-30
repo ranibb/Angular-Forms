@@ -44,4 +44,23 @@ This outputs the following object:
 
     { "userName": "Rani", "password": "", "confirmPassword": "" }
 
-The values get updated as you type into the input fields. There you go we have created our reactive form.
+The values get updated as you type into the input fields. There you go! we have created our reactive form.
+
+## Nesting FormGroups
+
+The FormGroup class can also be used to group together different FormControls.
+
+When building complex forms, managing the different areas of information is easier in smaller sections. In such scenarios, use a nested form group to break large forms into smaller and more manageable ones.
+
+```JSON
+{ 
+    "userName": "Rani", 
+    "password": "", 
+    "confirmPassword": "", 
+    "address": { 
+        "city": "", 
+        "state": "", 
+        "postalCode": "" 
+    }
+}
+```
