@@ -33,3 +33,15 @@ To bind each of the Form Controls we use the `formControlName` directive.
 
 <input formControlName="confirmPassword" type="password" class="form-control">
 ```
+
+Now that we have established communication layer between the model and the view, let’s use interpolation with the JSON pipe.
+
+```TypeScript
+    {{registrationForm.value | json}}
+```
+
+This outputs the following object:
+
+    { "userName": "Rani", "password": "", "confirmPassword": "" }
+
+The values get updated as you type into the input fields. There you go we have created our reactive form.
