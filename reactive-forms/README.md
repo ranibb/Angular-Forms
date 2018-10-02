@@ -64,3 +64,36 @@ When building complex forms, managing the different areas of information is easi
     }
 }
 ```
+
+## Managing Control Values
+
+Let’s see how we can set form control values without any user interaction, that is setting values programmatically. For example, we might have to retrieve form data from a back-end API or service and update the form controls to their new values. We can do that using the setValue method provided by reactive forms.
+
+```TypeScript
+loadAPIData() {
+    this.registrationForm.setValue({
+        userName: 'Ahmad',
+        password: 'test',
+        confirmPassword: 'test',
+        address: {
+            city: 'city',
+            state: 'State',
+            postalCode: '123456'
+        }
+    })
+}
+```
+
+Note that the setValue method is strict about maintaining the structure of the form group, you have to pass all the form control values.
+
+If you do have to set values for only few of the fields, you can make use of the patchValue method.
+
+```TypeScript
+loadAPIData() {
+    this.registrationForm.patchValue({
+        userName: 'Ahmad',
+        password: 'test',
+        confirmPassword: 'test',
+    })
+}
+```
