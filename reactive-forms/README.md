@@ -97,3 +97,7 @@ loadAPIData() {
     })
 }
 ```
+
+## FormBuilder Service
+
+We have seen so far how to create a form model using the FormGroup and the FormControl classes. But as you can see creating multiple FormControls instances manually can become very repetitive. To avoid this, angular provides the form builder service which in turn provides methods to handle generating FormControls with a lesser code.
