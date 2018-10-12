@@ -147,3 +147,9 @@ export function forbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
   
 }
 ```
+
+## Cross Field Validation
+
+Compare values across two different form controls to perform the necessary validation. For example, let's perform crossfield validation with the password and confirm password fields.
+
+note: the control parameter does not refer to an individual form control. Instead, it refers to the form group encompassing the different fields being validated.
