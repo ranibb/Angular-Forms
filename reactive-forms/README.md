@@ -101,3 +101,10 @@ loadAPIData() {
 ## FormBuilder Service
 
 We have seen so far how to create a form model using the FormGroup and the FormControl classes. But as you can see creating multiple FormControls instances manually can become very repetitive. To avoid this, angular provides the form builder service which in turn provides methods to handle generating FormControls with a lesser code.
+
+## Simple Validation
+
+The steps to implement a simple validation is as following:
+1. Apply the validation rule to a form control
+2. Provide a visual feedback for the validation 
+3. Display the appropriate error message for the validation
