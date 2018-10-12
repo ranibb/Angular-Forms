@@ -116,3 +116,34 @@ A small tip; To keep the code short and simple, create a getter that returns a f
 A custom validator is a function that can be written into the component file it self. Since these validator functions are usually reused in several places in the applicationm it is always a good idea to create a seperate file and export them.
 
 The validator function returns either of two values: When the validation fails it returns an object where the key is of type string and the value is of type any, and if the validation passed it returns null.
+
+```TypeScript
+export function forbiddenNameValidator(control: AbstractControl): { [key: string]: any } | null {
+
+  /* test if the formControl value containes the string "admin" */
+
+  const forbidden = /admin/.test(control.value); // true or false
+
+  return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+
+}
+```
+
+### Pass parameters to custom validators
+
+For example, pass in the string we want to forbid as a parameter to our custom validator. However, the drawback of the validator function is that it can accept only one parameter which is the form control, so we can’t simply pass in a second parameter. Instead, what we have to do is create a factory function that accept a string as a parameter and return the validator function itself.
+
+```TypeScript
+export function forbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
+
+  return (control: AbstractControl): { [key: string]: any } | null => {
+
+    /* test if the formControl value containes the string forbiddenName */
+  
+    const forbidden = forbiddenName.test(control.value); // true or false
+  
+    return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+  }
+  
+}
+```

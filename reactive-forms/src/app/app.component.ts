@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {}
   
   registrationForm = this.fb.group({
-    userName: ['Rani', [Validators.required, Validators.minLength(3), forbiddenNameValidator]],
+    userName: ['Rani', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/admin/), forbiddenNameValidator(/password/)]],
     password: ['test'],
     confirmPassword: ['test'],
     address: this.fb.group({
