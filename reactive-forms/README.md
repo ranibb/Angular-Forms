@@ -105,6 +105,8 @@ We have seen so far how to create a form model using the FormGroup and the FormC
 ## Simple Validation
 
 The steps to implement a simple validation is as following:
-1. Apply the validation rule to a form control
-2. Provide a visual feedback for the validation 
-3. Display the appropriate error message for the validation
+1. Apply the validation rule to a form control.
+2. Provide a visual feedback for the validation.
+3. Display the appropriate error message for the validation.
+
+A small tip; To keep the code short and simple, create a getter that returns a form control, and in the HTML, replace all occurrences with the getter.
