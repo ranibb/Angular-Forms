@@ -110,3 +110,9 @@ The steps to implement a simple validation is as following:
 3. Display the appropriate error message for the validation.
 
 A small tip; To keep the code short and simple, create a getter that returns a form control, and in the HTML, replace all occurrences with the getter.
+
+## Custom Validation
+
+A custom validator is a function that can be written into the component file it self. Since these validator functions are usually reused in several places in the applicationm it is always a good idea to create a seperate file and export them.
+
+The validator function returns either of two values: When the validation fails it returns an object where the key is of type string and the value is of type any, and if the validation passed it returns null.
