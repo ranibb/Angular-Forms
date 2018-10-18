@@ -156,3 +156,12 @@ note: the control parameter does not refer to an individual form control. Instea
 
 ## Conditional Validation
 
+## Dynamic Form Controls
+
+The steps:
+* Import FormArray
+* Define a form Array
+* Create a getter
+* Create a method to push either a form control or a form group
+* Add the form array name directive 
+* Iterate using the ngFor structural directive.
