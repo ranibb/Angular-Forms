@@ -165,3 +165,5 @@ The steps:
 * Create a method to push either a form control or a form group
 * Add the form array name directive 
 * Iterate using the ngFor structural directive.
+
+## Submitting Form Data
